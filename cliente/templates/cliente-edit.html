@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block title %} MyLittleStore {% endblock %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form method="POST" action="{% url 'editcliente' cliente.id %}">
+              {% csrf_token %}
+
+              {{clienteform.as_p}}
+
+              <button type="submit" name="btadd"  id="btadd" class="btn btn-success">Adicionar</button>
+              <button type="reset" name="btclear"  id="btclear"  class="btn btn-warning">Limpar</button>
+            </form>
+      
+
+        </div>
+
+        {% if error %}
+            <div class="alert alert-danger mt-3" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}    
+    
+    </div>
+
+</div>
+
+{% endblock content %}
+

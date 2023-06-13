@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block title %} MyLittleStore {% endblock %}
+{% block content %}
+
+<a href="{% url 'cliente' %}">
+<div class="painel painel-card">
+ {% load static %}
+      <img class="customer-icon" src="{% static 'images/customer.png'%}" alt="customer">
+       <h4>Cadastrar Cliente</h4>
+      
+</div>
+</a>
+{% endblock content %}

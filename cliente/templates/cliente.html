@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block title %} MyLittleStore {% endblock %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form method="POST" action="{% url 'createcliente'%}">
+              {% csrf_token %}
+
+              {{clienteform.as_p}}
+
+              <button type="submit" name="btadd"  id="btadd" class="btn btn-success">Adicionar</button>
+              <!-- <button name="btsearch" id="btsearch" class="btn btn-info">Pesquisar</button> -->
+              <button type="reset" name="btclear"  id="btclear"  class="btn btn-warning">Limpar</button>
+            </form>
+      
+
+        </div>
+
+        {% if error %}
+            <div class="alert alert-danger mt-3" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}    
+    
+    </div>
+
+    <div class="row"> 
+
+              <div class="col-md-12">
+
+    <table id="regtable" class="table">
+        <thead class="thead-light">
+            <tr id="tabhead">
+                <th>Nome</th>
+                <th>E-Mail</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody id="tregs">
+            {% for cliente in clientes %}
+
+            <tr> 
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.email }}</td>
+                <td><a href="{% url 'editcliente' cliente.id %}" class="btn btn-warning"> Editar</a>
+                    <a href="{% url 'deletecliente' cliente.id %}" class="btn btn-danger"> Excluir</a></td>    
+             </tr>
+             {% endfor %}
+        </tbody>
+    </table> 
+    </div>
+
+    </div>
+    </div>
+
+{% endblock content %}

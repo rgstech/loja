@@ -1,12 +1,24 @@
-/* * { border: 1px solid blue;}  just for test/ apenas pra test */
+/* *{ border: 1px solid blue;}   */
 
-.customer-icon {
+.menu-home-icon {
 
     width: 50px;
     height: 50px;
+    
 
 }
 
+
+.home-container {
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   gap: 1px;
+   padding-left: 20%;
+   padding-right: 20%;
+ 
+}
 .painel {
  
     /* width: 95%;
@@ -19,29 +31,41 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    overflow-y: auto;
+    align-items: center;
+    overflow:hidden;
   
   }
    
+
+  .painel-card a {
+    width: 100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10%;
+  }
   .painel-card {
   
     /* background-color: rgb(114, 166, 211); */
-  
-    color: rgb(25, 38, 153);
-  
+      color: rgb(25, 38, 153);
   /*  border-right: 5px solid rgb(62, 57, 107);
       border: 5px solid rgb(62, 57, 107); */
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-left: 10px solid rgb(62, 141, 62);
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
       margin: 20px auto;
-      width: 325px;
-      height: 200px;
+      width: 270px;
+      height: 120px;
       border-radius: 12px;
-      padding: 50px;
-      padding-top: 60px;
+      padding: 30px;
+      padding-top: 20px;
    /* background-color: #FFF; */
       background-color: #8bca8d;
+      padding: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
   
   }
 

@@ -4,12 +4,24 @@
 {% block title %} MyLittleStore {% endblock %}
 {% block content %}
 
-<a href="{% url 'cliente' %}">
-<div class="painel painel-card">
- {% load static %}
-      <img class="customer-icon" src="{% static 'images/customer.png'%}" alt="customer">
-       <h4>Cadastrar Cliente</h4>
-      
+{% load static %}
+
+<div class="container-fluid home-container">
+
+
+     <div class="painel painel-card">
+          <a href="{% url 'cliente' %}">
+            <img class="menu-home-icon" src="{% static 'images/customer.png'%}" alt="customer">
+            <h4>Clientes</h4>
+          </a>
+     </div>
+     <div class="painel painel-card">
+               <a href="{% url 'produto' %}">   
+                 <img class="menu-home-icon" src="{% static 'images/product.png'%}" alt="customer">
+                 <h4>Produtos</h4>
+               </a> 
+     </div>
+
 </div>
-</a>
+
 {% endblock content %}

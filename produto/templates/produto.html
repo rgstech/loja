@@ -1,0 +1,72 @@
+
+{% extends 'base.html' %}
+
+{% block title %} MyLittleStore {% endblock %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form method="POST" action="{% url 'createproduto'%}">
+              {% csrf_token %}
+
+              {{produtoform.as_p}}
+
+              <button type="submit" name="btadd"  id="btadd" class="btn btn-success">Adicionar</button>
+              <!-- <button name="btsearch" id="btsearch" class="btn btn-info">Pesquisar</button> -->
+              <button type="reset" name="btclear"  id="btclear"  class="btn btn-warning">Limpar</button>
+            </form>
+      
+
+        </div>
+
+        {% if error %}
+            <div class="alert alert-danger mt-3" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}    
+    
+    </div>
+
+    <div class="row"> 
+
+              <div class="col-md-12">
+
+    <table id="regtable" class="table">
+        <thead class="thead-light">
+            <tr id="tabhead">
+                <th>Titulo</th>
+                <th>Descrição</th>
+                <th>Preço Compra</th>
+                <th>Praço Venda</th>
+                <th>Quantidade</th>
+                <th>Disponivel</th>
+                <th>Data Cadastro</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody id="tregs">
+            {% for produto in produtos %}
+
+            <tr> 
+                <td>{{ produto.titulo }}</td>
+                <td>{{ produto.desc }}</td>
+                <td>{{ produto.preco_compra }}</td>
+                <td>{{ produto.preco_venda }}</td>
+                <td>{{ produto.quant }}</td>
+                <td>{{ produto.disponivel }}</td>
+                <td>{{ produto.dt_cadastro }}</td>
+                <td><a href="{% url 'editproduto' produto.id %}" class="btn btn-warning"> Editar</a>
+                    <a href="{% url 'deleteproduto' produto.id %}" class="btn btn-danger"> Excluir</a></td>    
+             </tr>
+             {% endfor %}
+        </tbody>
+    </table> 
+    </div>
+
+    </div>
+    </div>
+
+{% endblock content %}

@@ -8,7 +8,7 @@ from .models import Produto
 
 class ProdutoAdmin(admin.ModelAdmin):
     
-    list_display = ("titulo", "desc", 
+    list_display = ("id","titulo", "desc", 
                     "preco_compra", "preco_venda", 
                     "quant", "disponivel" , "dt_cadastro")
 

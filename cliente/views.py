@@ -5,6 +5,7 @@ from .models import Cliente
 from .forms import ClienteForm
 
 
+
 def index(request):
 
     clientes = Cliente.objects.all()

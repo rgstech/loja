@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import TemplateView
 
 def home(request):
-    return render(request, 'home.html' , { "nome": "Rodrigo",
-                                            'current_path': request.get_full_path() })
+    return render(request, 'home.html')
+    
+    
+ 
+class HomePageView(TemplateView):
+    template_name = "teste.html"
